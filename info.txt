@@ -1,0 +1,3 @@
+Fermi_detection			L1 loss + tanh activation
+Fermi_detection_lin		MSE loss + linear activation
+Fermi_detection_lin2		L1 loss + linear activation

@@ -1,0 +1,165 @@
+Spec_unet(
+  (conv_downsample): Sequential(
+    (0): Conv2d(1, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+    (1): BatchNorm2d(8, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): LeakyReLU(negative_slope=0.1)
+    (3): Conv2d(8, 16, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+    (4): Dropout(p=0.2)
+    (5): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (6): LeakyReLU(negative_slope=0.1)
+    (7): Conv2d(16, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+    (8): Dropout(p=0.2)
+    (9): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (10): LeakyReLU(negative_slope=0.1)
+    (11): Conv2d(32, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+    (12): Dropout(p=0.2)
+    (13): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (14): LeakyReLU(negative_slope=0.1)
+    (15): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+    (16): Dropout(p=0.2)
+    (17): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (18): LeakyReLU(negative_slope=0.1)
+    (19): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+    (20): Dropout(p=0.2)
+    (21): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (22): LeakyReLU(negative_slope=0.1)
+    (23): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+    (24): Dropout(p=0.2)
+    (25): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (26): LeakyReLU(negative_slope=0.1)
+    (27): Conv2d(64, 8, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (28): BatchNorm2d(8, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (29): LeakyReLU(negative_slope=0.1)
+  )
+  (linear): Sequential(
+    (0): Linear(in_features=480, out_features=32, bias=True)
+    (1): Dropout(p=0.2)
+    (2): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (3): LeakyReLU(negative_slope=0.1)
+    (4): Linear(in_features=32, out_features=1, bias=True)
+    (5): Tanh()
+  )
+)
+=========================================================================================
+                                     Kernel Shape       Output Shape   Params  \
+Layer                                                                           
+0_conv_downsample.Conv2d_0           [1, 8, 7, 7]   [2, 8, 320, 768]    392.0   
+1_conv_downsample.BatchNorm2d_1               [8]   [2, 8, 320, 768]     16.0   
+2_conv_downsample.LeakyReLU_2                   -   [2, 8, 320, 768]        -   
+3_conv_downsample.Conv2d_3          [8, 16, 3, 3]  [2, 16, 160, 384]   1.152k   
+4_conv_downsample.Dropout_4                     -  [2, 16, 160, 384]        -   
+5_conv_downsample.BatchNorm2d_5              [16]  [2, 16, 160, 384]     32.0   
+6_conv_downsample.LeakyReLU_6                   -  [2, 16, 160, 384]        -   
+7_conv_downsample.Conv2d_7         [16, 32, 3, 3]   [2, 32, 80, 192]   4.608k   
+8_conv_downsample.Dropout_8                     -   [2, 32, 80, 192]        -   
+9_conv_downsample.BatchNorm2d_9              [32]   [2, 32, 80, 192]     64.0   
+10_conv_downsample.LeakyReLU_10                 -   [2, 32, 80, 192]        -   
+11_conv_downsample.Conv2d_11       [32, 64, 3, 3]    [2, 64, 40, 96]  18.432k   
+12_conv_downsample.Dropout_12                   -    [2, 64, 40, 96]        -   
+13_conv_downsample.BatchNorm2d_13            [64]    [2, 64, 40, 96]    128.0   
+14_conv_downsample.LeakyReLU_14                 -    [2, 64, 40, 96]        -   
+15_conv_downsample.Conv2d_15       [64, 64, 3, 3]    [2, 64, 20, 48]  36.864k   
+16_conv_downsample.Dropout_16                   -    [2, 64, 20, 48]        -   
+17_conv_downsample.BatchNorm2d_17            [64]    [2, 64, 20, 48]    128.0   
+18_conv_downsample.LeakyReLU_18                 -    [2, 64, 20, 48]        -   
+19_conv_downsample.Conv2d_19       [64, 64, 3, 3]    [2, 64, 10, 24]  36.864k   
+20_conv_downsample.Dropout_20                   -    [2, 64, 10, 24]        -   
+21_conv_downsample.BatchNorm2d_21            [64]    [2, 64, 10, 24]    128.0   
+22_conv_downsample.LeakyReLU_22                 -    [2, 64, 10, 24]        -   
+23_conv_downsample.Conv2d_23       [64, 64, 3, 3]     [2, 64, 5, 12]  36.864k   
+24_conv_downsample.Dropout_24                   -     [2, 64, 5, 12]        -   
+25_conv_downsample.BatchNorm2d_25            [64]     [2, 64, 5, 12]    128.0   
+26_conv_downsample.LeakyReLU_26                 -     [2, 64, 5, 12]        -   
+27_conv_downsample.Conv2d_27        [64, 8, 3, 3]      [2, 8, 5, 12]   4.608k   
+28_conv_downsample.BatchNorm2d_28             [8]      [2, 8, 5, 12]     16.0   
+29_conv_downsample.LeakyReLU_29                 -      [2, 8, 5, 12]        -   
+30_linear.Linear_0                      [480, 32]            [2, 32]  15.392k   
+31_linear.Dropout_1                             -            [2, 32]        -   
+32_linear.BatchNorm1d_2                      [32]            [2, 32]     64.0   
+33_linear.LeakyReLU_3                           -            [2, 32]        -   
+34_linear.Linear_4                        [32, 1]             [2, 1]     33.0   
+35_linear.Tanh_5                                -             [2, 1]        -   
+
+                                   Mult-Adds  
+Layer                                         
+0_conv_downsample.Conv2d_0         96.33792M  
+1_conv_downsample.BatchNorm2d_1          8.0  
+2_conv_downsample.LeakyReLU_2              -  
+3_conv_downsample.Conv2d_3         70.77888M  
+4_conv_downsample.Dropout_4                -  
+5_conv_downsample.BatchNorm2d_5         16.0  
+6_conv_downsample.LeakyReLU_6              -  
+7_conv_downsample.Conv2d_7         70.77888M  
+8_conv_downsample.Dropout_8                -  
+9_conv_downsample.BatchNorm2d_9         32.0  
+10_conv_downsample.LeakyReLU_10            -  
+11_conv_downsample.Conv2d_11       70.77888M  
+12_conv_downsample.Dropout_12              -  
+13_conv_downsample.BatchNorm2d_13       64.0  
+14_conv_downsample.LeakyReLU_14            -  
+15_conv_downsample.Conv2d_15       35.38944M  
+16_conv_downsample.Dropout_16              -  
+17_conv_downsample.BatchNorm2d_17       64.0  
+18_conv_downsample.LeakyReLU_18            -  
+19_conv_downsample.Conv2d_19        8.84736M  
+20_conv_downsample.Dropout_20              -  
+21_conv_downsample.BatchNorm2d_21       64.0  
+22_conv_downsample.LeakyReLU_22            -  
+23_conv_downsample.Conv2d_23        2.21184M  
+24_conv_downsample.Dropout_24              -  
+25_conv_downsample.BatchNorm2d_25       64.0  
+26_conv_downsample.LeakyReLU_26            -  
+27_conv_downsample.Conv2d_27         276.48k  
+28_conv_downsample.BatchNorm2d_28        8.0  
+29_conv_downsample.LeakyReLU_29            -  
+30_linear.Linear_0                    15.36k  
+31_linear.Dropout_1                        -  
+32_linear.BatchNorm1d_2                 32.0  
+33_linear.LeakyReLU_3                      -  
+34_linear.Linear_4                      32.0  
+35_linear.Tanh_5                           -  
+-----------------------------------------------------------------------------------------
+                           Totals
+Total params             155.913k
+Trainable params         155.913k
+Non-trainable params          0.0
+Mult-Adds             355.415424M
+=========================================================================================
+                                     Kernel Shape       Output Shape   Params   Mult-Adds
+Layer                                                                                    
+0_conv_downsample.Conv2d_0           [1, 8, 7, 7]   [2, 8, 320, 768]    392.0  96337920.0
+1_conv_downsample.BatchNorm2d_1               [8]   [2, 8, 320, 768]     16.0         8.0
+2_conv_downsample.LeakyReLU_2                   -   [2, 8, 320, 768]      NaN         NaN
+3_conv_downsample.Conv2d_3          [8, 16, 3, 3]  [2, 16, 160, 384]   1152.0  70778880.0
+4_conv_downsample.Dropout_4                     -  [2, 16, 160, 384]      NaN         NaN
+5_conv_downsample.BatchNorm2d_5              [16]  [2, 16, 160, 384]     32.0        16.0
+6_conv_downsample.LeakyReLU_6                   -  [2, 16, 160, 384]      NaN         NaN
+7_conv_downsample.Conv2d_7         [16, 32, 3, 3]   [2, 32, 80, 192]   4608.0  70778880.0
+8_conv_downsample.Dropout_8                     -   [2, 32, 80, 192]      NaN         NaN
+9_conv_downsample.BatchNorm2d_9              [32]   [2, 32, 80, 192]     64.0        32.0
+10_conv_downsample.LeakyReLU_10                 -   [2, 32, 80, 192]      NaN         NaN
+11_conv_downsample.Conv2d_11       [32, 64, 3, 3]    [2, 64, 40, 96]  18432.0  70778880.0
+12_conv_downsample.Dropout_12                   -    [2, 64, 40, 96]      NaN         NaN
+13_conv_downsample.BatchNorm2d_13            [64]    [2, 64, 40, 96]    128.0        64.0
+14_conv_downsample.LeakyReLU_14                 -    [2, 64, 40, 96]      NaN         NaN
+15_conv_downsample.Conv2d_15       [64, 64, 3, 3]    [2, 64, 20, 48]  36864.0  35389440.0
+16_conv_downsample.Dropout_16                   -    [2, 64, 20, 48]      NaN         NaN
+17_conv_downsample.BatchNorm2d_17            [64]    [2, 64, 20, 48]    128.0        64.0
+18_conv_downsample.LeakyReLU_18                 -    [2, 64, 20, 48]      NaN         NaN
+19_conv_downsample.Conv2d_19       [64, 64, 3, 3]    [2, 64, 10, 24]  36864.0   8847360.0
+20_conv_downsample.Dropout_20                   -    [2, 64, 10, 24]      NaN         NaN
+21_conv_downsample.BatchNorm2d_21            [64]    [2, 64, 10, 24]    128.0        64.0
+22_conv_downsample.LeakyReLU_22                 -    [2, 64, 10, 24]      NaN         NaN
+23_conv_downsample.Conv2d_23       [64, 64, 3, 3]     [2, 64, 5, 12]  36864.0   2211840.0
+24_conv_downsample.Dropout_24                   -     [2, 64, 5, 12]      NaN         NaN
+25_conv_downsample.BatchNorm2d_25            [64]     [2, 64, 5, 12]    128.0        64.0
+26_conv_downsample.LeakyReLU_26                 -     [2, 64, 5, 12]      NaN         NaN
+27_conv_downsample.Conv2d_27        [64, 8, 3, 3]      [2, 8, 5, 12]   4608.0    276480.0
+28_conv_downsample.BatchNorm2d_28             [8]      [2, 8, 5, 12]     16.0         8.0
+29_conv_downsample.LeakyReLU_29                 -      [2, 8, 5, 12]      NaN         NaN
+30_linear.Linear_0                      [480, 32]            [2, 32]  15392.0     15360.0
+31_linear.Dropout_1                             -            [2, 32]      NaN         NaN
+32_linear.BatchNorm1d_2                      [32]            [2, 32]     64.0        32.0
+33_linear.LeakyReLU_3                           -            [2, 32]      NaN         NaN
+34_linear.Linear_4                        [32, 1]             [2, 1]     33.0        32.0
+35_linear.Tanh_5                                -             [2, 1]      NaN         NaN
