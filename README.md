@@ -16,16 +16,25 @@ Note that if you do not give energy_axis or momentum_axis as parameters, the pro
 Setting up the enviornment:-
 
 Method which should ideally work:-
+
 conda env create -f environment.yml 
+
+
 
 Method which actually works:-
 
 conda deactivate
+
 conda create --name fermilevel python=3.7.6
+
 conda activate fermilevel
+
 conda install pytorch-cpu==1.1.0 torchvision-cpu==0.3.0 cpuonly -c pytorch
+
 conda install -c conda-forge opencv
+
 pip install torchsummaryX
+
 pip install arpys
 
 
